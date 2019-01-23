@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Header = styled.div`
     display: flex;
@@ -38,15 +39,16 @@ class EmployeesList extends Component {
                         <td>Number of Children</td>
                     </tr>
                     {this.state.employees.map((employee, i) => (
+                        
                         <tr key={i}>
                             <td>{employee._id}</td>
-                            <td>{employee.firstName}</td>
+                            <Link to={`/employees/${employee._id}`}><td>{employee.firstName}</td></Link>
                             <td>{employee.lastName}</td>
                             <td>{employee.birthDate}</td>
                             <td>{employee.title}</td>
                             <td>{employee.children.length}</td>
                         </tr>
-                    ))}
+                ))}
                 </table>
             </div>
         );
