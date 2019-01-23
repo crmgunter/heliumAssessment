@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+
+const Table = styled.table`
+    border: 1px solid black;
+
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+    td:nth-child(odd) {
+        background: lightblue;
+    }
+`
 
 class ChildrenTable extends Component {
     render() {
         return (
             <div>
-                <h1>children</h1>
-                <table>
+                <Table>
                 <tr>
                         <td>Id</td>
                         <td>First Name</td>
@@ -22,7 +34,7 @@ class ChildrenTable extends Component {
                         <td>{child.gender}</td>
                     </tr>
                 ))}
-                </table>
+                </Table>
             </div>
         );
     }

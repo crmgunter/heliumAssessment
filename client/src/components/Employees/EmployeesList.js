@@ -6,6 +6,12 @@ import { Link } from 'react-router-dom'
 const Header = styled.div`
     display: flex;
     justify-content: space-around;
+
+    button {
+        width: 100px;
+        height: 50px;
+        margin-top: 20px;
+    }
 `
 
 const Table = styled.table`
@@ -81,12 +87,10 @@ class EmployeesList extends Component {
             <div>
                 <Header>
                     <h1>Employees</h1>
-                    <div>
-                    <button onClick={this.createNewEmail}>Generate Emails</button>
-                    <Link to="/employees/new">
-                        <button>Add Employee</button>
-                    </Link>
-                    </div>
+                        <button onClick={this.createNewEmail}>Generate Emails</button>
+                        <Link to="/employees/new">
+                            <button>Add Employee</button>
+                        </Link>
                 </Header>
                 <Table>
                     <tr>

@@ -1,5 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
+
+const FormContainer = styled.div`
+    text-align: center;
+    
+    form {
+        border: 1px solid black;
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    input {
+        padding: 5px;
+        margin: 2px;
+    }
+
+`
 
 class EditEmployeeForm extends Component {
     state = {
@@ -30,7 +48,7 @@ class EditEmployeeForm extends Component {
 
     render() {
         return (
-            <div>
+            <FormContainer>
                 <form onSubmit={this.handleSubmit}>
                     <div><input onChange={this.handleChange} placeholder={this.props.employee.firstName} type="text" name="firstName" value={this.state.employee.firstName}/></div>
                     <div><input onChange={this.handleChange} placeholder={this.props.employee.lastName} type="text" name="lastName" value={this.state.employee.lastName}/></div>
@@ -42,7 +60,7 @@ class EditEmployeeForm extends Component {
                     </select></div>
                     <button>Save</button>
                 </form>
-            </div>
+            </FormContainer>
         );
     }
 }
