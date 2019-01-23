@@ -28,7 +28,10 @@ class EmployeesList extends Component {
         return (
             <div>
                 <Header><h1>Employees</h1>
-                    <button>Add Employee</button></Header>
+                    <Link to="/employees/new">
+                    <button>Add Employee</button>
+                    </Link>
+                </Header>
                 <table>
                     <tr>
                         <td>EmployeeId</td>

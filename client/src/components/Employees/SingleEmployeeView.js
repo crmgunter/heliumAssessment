@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import EditEmployeeForm from './EditEmployeeForm'
-import ChildrenTable from './ChildrenTable'
+import ChildrenTable from '../Children/ChildrenTable'
 
 class SingleEmployeeView extends Component {
     state = {
@@ -26,7 +26,9 @@ class SingleEmployeeView extends Component {
             <div>
                 <div>
                     <h1>Update Employee's Details - {this.state.employee.firstName} {this.state.employee.lastName}</h1>
-                    <EditEmployeeForm employee={this.state.employee} />
+                    <EditEmployeeForm
+                    employee={this.state.employee}
+                    getSingleEmployee={this.getSingleEmployee}/>
                 </div>
 
                 <div>

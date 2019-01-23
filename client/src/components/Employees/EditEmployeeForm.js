@@ -22,18 +22,21 @@ class EditEmployeeForm extends Component {
         event.preventDefault()
         const payload = this.state.employee
         axios.patch(`/api/employees/${this.props.employee._id}`, payload)
-        .then((res) => this.setState({ employee: res.data }))
+        .then((res) => {
+            this.setState({ employee: res.data })
+            this.props.getSingleEmployee()
+        })
     }
 
     render() {
         return (
             <div>
-                <form>
-                    <div><input onChange={this.handleChange} type="text" name="firstName" value={this.state.employee.firstName}/></div>
-                    <div><input onChange={this.handleChange} type="text" name="lastName" value={this.state.employee.lastName}/></div>
-                    <div><input onChange={this.handleChange} type="text" name="title" value={this.state.employee.title}/></div>
+                <form onSubmit={this.handleSubmit}>
+                    <div><input onChange={this.handleChange} placeholder={this.props.employee.firstName} type="text" name="firstName" value={this.state.employee.firstName}/></div>
+                    <div><input onChange={this.handleChange} placeholder={this.props.employee.lastName} type="text" name="lastName" value={this.state.employee.lastName}/></div>
+                    <div><input onChange={this.handleChange} placeholder={this.props.employee.title} type="text" name="title" value={this.state.employee.title}/></div>
                     <div><input onChange={this.handleChange} type="date" name="birthDate" value={this.state.employee.birthDate}/></div>
-                    <div><select name="gender" id="">
+                    <div><select onChange={this.handleChange} name="gender" value={this.state.employee.gender}>
                         <option value={true}>Male</option>
                         <option value={false}>Female</option>
                     </select></div>
