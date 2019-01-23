@@ -3,12 +3,12 @@ const Schema = mongoose.Schema
 
 // gender for now is boolean. This should be changed to enums.
 
-const Children = new Schema({
+const Child = new Schema({
     firstName: String,
     lastName: String,
     gender: Boolean,
-    birthDate: Date(),
+    birthDate: Date,
     relationship: Boolean
 })
 
-module.exports = mongoose.model('Children', Children)
+module.exports = mongoose.model('Child', Child)
