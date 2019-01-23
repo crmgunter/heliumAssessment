@@ -12,7 +12,7 @@ const Employee = new Schema({
     email: String,
     children: [{
         type: Schema.Types.ObjectId,
-        ref: 'Children'
+        ref: 'Child'
     }]
 })
 
