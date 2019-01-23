@@ -26,7 +26,7 @@ class EditEmployeeForm extends Component {
             lastName: '',
             title: '',
             birthDate: '',
-            gender: true
+            gender: null
         }
     }
 
@@ -54,10 +54,13 @@ class EditEmployeeForm extends Component {
                     <div><input onChange={this.handleChange} placeholder={this.props.employee.lastName} type="text" name="lastName" value={this.state.employee.lastName}/></div>
                     <div><input onChange={this.handleChange} placeholder={this.props.employee.title} type="text" name="title" value={this.state.employee.title}/></div>
                     <div><input onChange={this.handleChange} type="date" name="birthDate" value={this.state.employee.birthDate}/></div>
-                    <div><select onChange={this.handleChange} name="gender" value={this.state.employee.gender}>
+                    <div>
+                        <select onChange={this.handleChange} name="gender" value={this.state.employee.gender}>
+                        <option>Select a Gender</option>
                         <option value={true}>Male</option>
                         <option value={false}>Female</option>
-                    </select></div>
+                    </select>
+                    </div>
                     <button>Save</button>
                 </form>
             </FormContainer>

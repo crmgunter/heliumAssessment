@@ -31,7 +31,7 @@ class ChildrenTable extends Component {
                         <td>{child.firstName}</td>
                         <td>{child.lastName}</td>
                         <td>{child.birthDate}</td>
-                        <td>{child.gender}</td>
+                        {child.gender ? <td>Male</td> : <td>Female</td>}
                     </tr>
                 ))}
                 </Table>
