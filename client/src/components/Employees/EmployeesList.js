@@ -29,10 +29,37 @@ class EmployeesList extends Component {
         .then(() => this.getAllEmployees())
     }
 
+    generateEmail = (firstName, lastName) => {
+        const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+        const numbers = '0123456789'
+        let randomLetters = ''
+        let randomNumbers = ''
+        for (let i = 0; i < 6; i++) {
+            const getRandomLetters = alpha.charAt(Math.floor(Math.random() * alpha.length))
+            randomLetters += getRandomLetters
+        }
+        for (let i = 0; i < 3; i++) {
+            const getRandomNumbers = numbers.charAt(Math.floor(Math.random() * numbers.length))
+            randomNumbers += getRandomNumbers
+        }
+        console.log(firstName, randomNumbers, lastName, randomLetters)
+        const newEmail = `${firstName}${lastName}${randomNumbers}${randomLetters}@heliumservices.com`
+        console.log(newEmail)
+    }
+
+    createNewEmail = () => {
+        this.state.employees.map((employee) => {
+            this.generateEmail(employee.firstName, employee.lastName)
+        })
+    }
+
     render() {
+        
         return (
             <div>
-                <Header><h1>Employees</h1>
+                <Header>
+                    <h1>Employees</h1>
+                    <button>Generate Emails</button>
                     <Link to="/employees/new">
                     <button>Add Employee</button>
                     </Link>
