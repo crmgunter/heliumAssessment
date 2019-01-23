@@ -24,6 +24,11 @@ class EmployeesList extends Component {
             .then((res) => this.setState({ employees: res.data }))
     }
 
+    deleteEmployee = (employeeId) => {
+        axios.delete(`/api/employees/${employeeId}`)
+        .then(() => this.getAllEmployees())
+    }
+
     render() {
         return (
             <div>
@@ -40,6 +45,7 @@ class EmployeesList extends Component {
                         <td>Birth Date</td>
                         <td>Job Title</td>
                         <td>Number of Children</td>
+                        <td>Delete</td>
                     </tr>
                     {this.state.employees.map((employee, i) => (
                         
@@ -50,6 +56,9 @@ class EmployeesList extends Component {
                             <td>{employee.birthDate}</td>
                             <td>{employee.title}</td>
                             <td>{employee.children.length}</td>
+                            <td>
+                                <button onClick={() => this.deleteEmployee(employee._id)}>Delete</button>
+                            </td>
                         </tr>
                 ))}
                 </table>
