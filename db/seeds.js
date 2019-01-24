@@ -17,6 +17,7 @@
 
 const Employee = require('../models/Employee')
 const Child = require('../models/Child')
+const mongoose = require('./connection')
 
 const jamesFranko = new Child({
     firstName: "James",
@@ -112,5 +113,8 @@ Employee.remove({})
 .then(() => Child.remove({}))
 .then(() => Employee.create([lindaFranko, jamesSmith, catherineDodge, davidKim, josephNorton]))
 .then(() => Child.insertMany([jamesFranko, julieFranko, mollyKim, taylorSmith, benjaminSmith]))
-.then(() => console.log('seeded successfully'))
+.then(() => {
+    console.log('seeded successfully')
+    mongoose.connection.close()
+})
 .catch(err => console.log(err, 'error!'))

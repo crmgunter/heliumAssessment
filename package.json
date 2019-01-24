@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "build": "npm i && cd client && npm i && cd .. && node db/seeds",
     "start": "nodemon server.js",
     "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
